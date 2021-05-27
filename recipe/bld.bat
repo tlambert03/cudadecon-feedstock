@@ -6,6 +6,10 @@ cmake -G Ninja ^
     -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
     -DCMAKE_BUILD_TYPE=Release ^
     ../src
+if errorlevel 1 exit 1
 
 ninja
+if errorlevel 1 exit 1
+
 ninja install
+if errorlevel 1 exit 1
