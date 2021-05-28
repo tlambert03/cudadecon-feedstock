@@ -1,5 +1,5 @@
 {% set name = "cudaDecon" %}
-{% set version = "0.0.10" %}
+{% set version = "0.0.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/scopetools/cudaDecon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 29182331bb48d37b415d50365099314af9c824059cd6e9bc687e6d403d699e8e
+  sha256: 1b15ea5f0f8e24f80c075490e8070332fd090eabe70734df3b4dc8966729e22b
 
 build:
-  number: 3
+  number: 0
   skip: True  # [osx or (cuda_compiler_version in ('None', 'undefined'))]
 
 requirements:
