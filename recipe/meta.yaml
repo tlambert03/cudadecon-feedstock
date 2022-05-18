@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/scopetools/cudaDecon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 79c79099907445b64e41c9423b26c57101dbbfa73cfc832ad9c15186298804a8
+  sha256: 449fda85d296612a845e1ffe2df88fdef6a4d6905ffe6d6ab257ff085d8cbd1f
 
 build:
   number: 0
