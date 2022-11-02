@@ -1,5 +1,5 @@
 {% set name = "cudaDecon" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/scopetools/cudaDecon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 449fda85d296612a845e1ffe2df88fdef6a4d6905ffe6d6ab257ff085d8cbd1f
+  sha256: 82900ef979f55d452486848ca2209e8c1f7d05985401e307e949427d560bc256
 
 build:
-  number: 2
+  number: 0
   skip: True  # [osx or (cuda_compiler_version in ('None', 'undefined'))]
 
 requirements:
@@ -49,3 +49,4 @@ extra:
   recipe-maintainers:
     - tlambert03
     - zbarry
+    - dmilkie
