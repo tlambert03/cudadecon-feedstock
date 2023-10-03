@@ -15,7 +15,7 @@ fftw:
 libboost_devel:
 - '1.82'
 libtiff:
-- '4.5'
+- '4.6'
 target_platform:
 - win-64
 zip_keys:
