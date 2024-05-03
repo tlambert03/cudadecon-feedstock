@@ -1,5 +1,11 @@
 c_compiler:
-- vs2019
+- gcc
+c_stdlib:
+- sysroot
+c_stdlib_version:
+- '2.17'
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,9 +13,11 @@ channel_targets:
 cuda_compiler:
 - nvcc
 cuda_compiler_version:
-- '11.2'
+- '11.8'
 cxx_compiler:
-- vs2019
+- gxx
+docker_image:
+- quay.io/condaforge/linux-anvil-cuda:11.8
 fftw:
 - '3'
 libboost_devel:
@@ -17,7 +25,10 @@ libboost_devel:
 libtiff:
 - '4.6'
 target_platform:
-- win-64
+- linux-64
 zip_keys:
-- - cuda_compiler
+- - c_stdlib_version
+  - cdt_name
+  - cuda_compiler
   - cuda_compiler_version
+  - docker_image
