@@ -10,7 +10,7 @@ source:
   sha256: 5aed121463495eec9d62c159cdf94106a2674c9051c397a934551fb9960cca27
 
 build:
-  number: 5
+  number: 6
   skip: True  # [osx or (cuda_compiler_version in ('None', 'undefined'))]
 
 requirements:
@@ -19,6 +19,7 @@ requirements:
     # For Linux CUDA 11.8 builds, pin to GCC 10 to workaround issues with GCC 11.
     # xref: https://github.com/conda-forge/cudadecon-feedstock/issues/29
     - {{ compiler('c') }}                          # [not (linux and cuda_compiler_version == "11.8")]
+    - {{ stdlib("c") }}                            # [not (linux and cuda_compiler_version == "11.8")]
     - {{ compiler('cxx') }}                        # [not (linux and cuda_compiler_version == "11.8")]
     - {{ c_compiler }}_{{ target_platform }} 10    # [linux and cuda_compiler_version == "11.8"]
     - {{ cxx_compiler }}_{{ target_platform }} 10  # [linux and cuda_compiler_version == "11.8"]
