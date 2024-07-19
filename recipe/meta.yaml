@@ -1,5 +1,5 @@
 {% set name = "cudaDecon" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,30 +7,26 @@ package:
 
 source:
   url: https://github.com/scopetools/cudaDecon/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 5aed121463495eec9d62c159cdf94106a2674c9051c397a934551fb9960cca27
+  sha256: c489c346f5b53bf384176ab3c1e6d82b71ae8e8a18e1365fd7a7177a35800442
 
 build:
-  number: 6
+  number: 0
   skip: True  # [osx or (cuda_compiler_version in ('None', 'undefined'))]
 
 requirements:
   build:
     - {{ stdlib('c') }}
-    # For Linux CUDA 11.8 builds, pin to GCC 10 to workaround issues with GCC 11.
-    # xref: https://github.com/conda-forge/cudadecon-feedstock/issues/29
-    - {{ compiler('c') }}                          # [not (linux and cuda_compiler_version == "11.8")]
-    - {{ stdlib("c") }}                            # [not (linux and cuda_compiler_version == "11.8")]
-    - {{ compiler('cxx') }}                        # [not (linux and cuda_compiler_version == "11.8")]
-    - {{ c_compiler }}_{{ target_platform }} 10    # [linux and cuda_compiler_version == "11.8"]
-    - {{ cxx_compiler }}_{{ target_platform }} 10  # [linux and cuda_compiler_version == "11.8"]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}
-    - cmake
+    - cmake >=3.18
     - make  # [not win]
     - libgomp  # [linux]
   host:
     - libboost-devel
     - libtiff
     - fftw
+    - libcufft-dev  # [(cuda_compiler_version or "").startswith("12")]
   run:
 
 test:
